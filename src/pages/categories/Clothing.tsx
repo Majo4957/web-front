@@ -1,11 +1,11 @@
-import Navbar from "../ui/nav-bar";
+import Navbar from "../../ui/nav-bar";
 
-export function Account() {
+export function Clothing() {
   return (
     <>
       <Navbar />
       <div className="grid min-h-screen place-items-center">
-        <span className="emoji">Account übersicht</span>
+        <span className="emoji">Klamotten test</span>
       </div>
     </>
   );

@@ -7,6 +7,7 @@ import { Home } from "./pages/home";
 import { Mainpage } from "./pages/mainpage";
 import { Cart } from "./pages/cart";
 import { Account } from "./pages/accounts";
+import { Category } from "./pages/category";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <Home />,
       },
       {
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/account",
         element: <Account />,
+      },
+      {
+        path: "/category",
+        element: <Category />,
+      },
+      {
+        path: "/category/",
+        element: <Category />,
       },
     ],
   },

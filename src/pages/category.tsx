@@ -1,6 +1,6 @@
 import Navbar from "../ui/nav-bar";
 
-export function Account() {
+export function Category() {
   return (
     <>
       <Navbar />
