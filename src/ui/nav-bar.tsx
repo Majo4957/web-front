@@ -69,31 +69,31 @@ const Navbar: React.FC = () => {
           {dropdownOpen && (
             <div className="absolute z-10 mt-1 w-48 rounded-md bg-white shadow-md">
               <NavLink
-                to="/Clothing"
+                to="/clothing"
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
               >
                 Kleidung
               </NavLink>
               <NavLink
-                to="/Electronics"
+                to="/electronics"
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
               >
                 Elektroschrott
               </NavLink>
               <NavLink
-                to="/Home"
+                to="/hoam"
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
               >
                 Dahoam
               </NavLink>
               <NavLink
-                to="/Beauty & Health"
+                to="/beautyhealth"
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
               >
                 Drogeriezeugs
               </NavLink>
               <NavLink
-                to="Gifts"
+                to="/gifts"
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
               >
                 Giftige Geschenke

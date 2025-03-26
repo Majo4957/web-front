@@ -8,6 +8,14 @@ import { Mainpage } from "./pages/mainpage";
 import { Cart } from "./pages/cart";
 import { Account } from "./pages/accounts";
 import { Category } from "./pages/category";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Clothing } from "./pages/categories/Clothing";
+import { Electronics } from "./pages/categories/Electronics";
+import { BeautyHealth } from "./pages/categories/Beauty_Health";
+import { Hoimat } from "./pages/categories/Hoimat";
+import { Gifts } from "./pages/categories/Gifts";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -35,15 +43,33 @@ const router = createBrowserRouter([
         element: <Category />,
       },
       {
-        path: "/category/",
-        element: <Category />,
+        path: "/clothing",
+        element: <Clothing/>,
+      },
+      {
+        path: "/electronics",
+        element: <Electronics />,
+      },
+      {
+        path: "/beautyhealth",
+        element: <BeautyHealth />,
+      },
+      {
+        path: "/gifts",
+        element: <Gifts />,
+      },
+      {
+        path: "/hoam",
+        element: <Hoimat />,
       },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
+  <QueryClientProvider client={queryClient}>
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </StrictMode>
+  </QueryClientProvider>
 );

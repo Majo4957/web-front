@@ -5,7 +5,7 @@ export function Category() {
     <>
       <Navbar />
       <div className="grid min-h-screen place-items-center">
-        <span className="emoji">Account übersicht</span>
+        <span className="emoji">Kategorien</span>
       </div>
     </>
   );
