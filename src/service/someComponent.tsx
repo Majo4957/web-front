@@ -31,6 +31,7 @@ export function SomeComponent({ category }: SomeComponentProps) {
                 productId: product.id,
                 quantity: 1,
                 itemPrice: product.price,
+                productName: product.name,
               })
             } 
             className="mx-auto mt-2 block w-1/2 rounded bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"

@@ -10,6 +10,7 @@ interface CartItem {
   productId: number;
   quantity: number;
   itemPrice: number;
+  productName: string;
 }
 
 export const useCart = create<CartStore>((set) => ({
@@ -34,6 +35,7 @@ export const useCart = create<CartStore>((set) => ({
               productId: newItem.productId,
               quantity: 1,
               itemPrice: newItem.itemPrice,
+              productName: newItem.productName,
             },
           ],
         };

@@ -21,8 +21,8 @@ export function Cart() {
                     className="mb-4 flex items-center justify-between"
                   >
                     <div>
-                      <h3 className="text-lg">{item.productId}</h3> // Hier Namen reinpacken
-                      <p className="text-gray-500">€{item.quantity}</p>
+                      <h3 className="text-lg">{item.productName}</h3> 
+                      <p className="text-gray-500">x{item.quantity}</p>
                       <p className="text-gray-500">€{item.itemPrice}</p>
                     </div>
                     <div>
@@ -43,7 +43,9 @@ export function Cart() {
             <span className="font-semibold">
               €
               {cart.reduce<number>((acc: number, item) => {
-                return item.itemPrice * item.quantity + acc;
+                const endPrice = item.itemPrice * item.quantity + acc
+                endPrice.toFixed(2)
+                return endPrice;
               }, 0)}
             </span>
           </div>
