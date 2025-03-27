@@ -33,6 +33,6 @@ export const useProductsByCategory = (category: string) => {
       const result = await response.json();
       return result;
     },
-    enabled: !!category, // Query only runs if category is provided
+    enabled: !!category,
   });
 };
