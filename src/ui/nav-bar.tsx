@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import wurst from "../components/pictures/wurst.png";
+import { totalCount } from "../pages/cart";
 
 const Navbar: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scale, setScale] = useState(1);
+  const itemCount = totalCount();
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -106,9 +108,14 @@ const Navbar: React.FC = () => {
 
         <NavLink
           to="/cart"
-          className="rounded bg-blue-500 px-4 py-2 font-semibold text-white"
+          className="relative rounded bg-blue-500 px-4 py-2 font-semibold text-white"
         >
           Warenkorb
+          {itemCount > 0 && (
+            <span className="absolute -top-1 -right-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+              {itemCount}
+            </span>
+          )}
         </NavLink>
 
         <div className="mx-4 h-6 border-l"></div>

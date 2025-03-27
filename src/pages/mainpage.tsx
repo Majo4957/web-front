@@ -2,9 +2,11 @@ import { useState } from "react";
 import Navbar from "../ui/nav-bar";
 import { useProducts } from "../service/useProducts";
 import kuh from "../components/pictures/kuehe-weide.jpg"
+import { useCart } from "../service/useCart";
 
 export function Mainpage() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { addToCart } = useCart();
 
   const { data } = useProducts();
   const products = data?.data;
@@ -49,11 +51,23 @@ export function Mainpage() {
               <p className="text-green-600">
                 Preis: {products[currentIndex].price} €
               </p>
+              <button
+            onClick={() =>
+              addToCart({
+                productId: products[currentIndex].id,
+                quantity: 1,
+                itemPrice: products[currentIndex].price,
+                productName: products[currentIndex].name,
+              })
+            } 
+            className="mx-auto mt-2 block w-1/2 rounded bg-blue-500 px-2 py-1 text-white hover:bg-blue-600"
+          >
+            Das muss ich haben!
+          </button>
             </div>
           ) : (
             <p>Keine Produkte verfügbar.</p>
           )}
-          {/* Buttons auf Höhe der Mitte */}
           <div className="absolute left-0 right-0 flex items-center justify-between top-1/2 transform -translate-y-1/2 mt-4">
             <button
               onClick={prevProduct}

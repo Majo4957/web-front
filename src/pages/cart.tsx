@@ -2,7 +2,7 @@ import { useCart } from "../service/useCart";
 import Navbar from "../ui/nav-bar";
 
 export function Cart() {
-  const { items: cart, removeItem } = useCart();
+  const { items: cart, removeItem, decreaseItemQuantity } = useCart();
 
   return (
     <>
@@ -21,16 +21,22 @@ export function Cart() {
                     className="mb-4 flex items-center justify-between"
                   >
                     <div>
-                      <h3 className="text-lg">{item.productName}</h3> 
+                      <h3 className="text-lg">{item.productName}</h3>
                       <p className="text-gray-500">x{item.quantity}</p>
                       <p className="text-gray-500">€{item.itemPrice}</p>
                     </div>
                     <div>
                       <button
-                        className="text-red-500"
+                        className="mr-2 rounded border border-red-500 px-2 py-1 text-red-500"
                         onClick={() => removeItem(item.productId)}
                       >
-                        Entfernen
+                        Weg damit!
+                      </button>
+                      <button
+                        className="rounded border border-blue-500 px-2 py-1 text-blue-500"
+                        onClick={() => decreaseItemQuantity(item.productId)}
+                      >
+                        Weniger pls
                       </button>
                     </div>
                   </div>
@@ -43,11 +49,18 @@ export function Cart() {
             <span className="font-semibold">
               €
               {cart.reduce<number>((acc: number, item) => {
-                const endPrice = item.itemPrice * item.quantity + acc
-                endPrice.toFixed(2)
+                const endPrice = item.itemPrice * item.quantity + acc;
+                endPrice.toFixed(2);
                 return endPrice;
               }, 0)}
             </span>
+          </div>
+          <div className="mt-4 flex items-center justify-between">
+            <span className="font-bold"> Gesamtanzahl Produkte: </span>x
+            {cart.reduce<number>((accu: number, item) => {
+              const totalQuantity = item.quantity + accu;
+              return totalQuantity;
+            }, 0)}
           </div>
           <div className="mt-4">
             <button className="rounded bg-blue-500 px-4 py-2 text-white">
@@ -58,4 +71,12 @@ export function Cart() {
       </div>
     </>
   );
+}
+
+export function totalCount() {
+  const { items: cart } = useCart();
+
+  return cart.reduce<number>((accu: number, item) => {
+    return item.quantity + accu;
+  }, 0);
 }
