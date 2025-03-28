@@ -33,7 +33,7 @@ export function Mainpage() {
           backgroundPosition: 'center',
         }}
       >
-        <div className="my-8 text-center border-2 border-gray-500 rounded-lg p-4 bg-white shadow-md w-200 h-110 relative">
+        <div className="my-8 text-center border-2 border-gray-500 rounded-lg p-4 bg-white shadow-md w-200 h-120 relative">
           <h2 className="mb-4 animate-pulse text-xl font-extrabold text-blue-800">
             Angebot des Tages
           </h2>

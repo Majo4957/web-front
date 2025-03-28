@@ -19,14 +19,14 @@ export const useProducts = () => {
   });
 };
 
-export const useProductsByCategory = (category: string) => {
+export const useProductsByCategory = (category: string, pagination: number) => {
   return useQuery({
     queryKey: ["products", category],
     queryFn: async (): Promise<{
       data: Product[];
       pagination: Pagination;
     }> => {
-      const response = await fetch(`${API_BASE_URL}/products?category=${encodeURIComponent(category)}`);
+      const response = await fetch(`${API_BASE_URL}/products?category=${encodeURIComponent(category)}&page=${encodeURIComponent(pagination)}`);
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }

@@ -1,5 +1,6 @@
 import { useCart } from "../service/useCart";
-import Navbar from "../ui/nav-bar";
+import Navbar from "../ui/nav-bar"; 
+import bub from "../components/pictures/bubbles.webp"
 
 export function Cart() {
   const { items: cart, removeItem, decreaseItemQuantity } = useCart();
@@ -7,7 +8,16 @@ export function Cart() {
   return (
     <>
       <Navbar />
-      <div className="grid h-full min-h-screen place-items-center bg-gray-300 p-5">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url(${bub})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          zIndex: -1,
+        }}
+      ></div>
+      <div className="grid h-full min-h-screen place-items-center bg-gray-300 p-5 relative">
         <div className="w-full max-w-lg rounded-lg bg-white p-5 shadow-md">
           <h2 className="mb-4 text-xl font-semibold">Warenkorb</h2>
           <div id="cart-items">
@@ -50,9 +60,8 @@ export function Cart() {
               €
               {cart.reduce<number>((acc: number, item) => {
                 const endPrice = item.itemPrice * item.quantity + acc;
-                endPrice.toFixed(2);
                 return endPrice;
-              }, 0)}
+              }, 0).toFixed(2)}
             </span>
           </div>
           <div className="mt-4 flex items-center justify-between">
